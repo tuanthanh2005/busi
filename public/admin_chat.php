@@ -46,6 +46,9 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     </div>
 
     <!-- Khung chat chÃ­nh -->
+
+
+    
     <div class="chat-area">
         <div class="chat-header" id="chat-header" style="display:none;">
             <h5 class="mb-0" id="current-user-name">User Name</h5>
