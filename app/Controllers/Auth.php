@@ -29,7 +29,7 @@ class Auth
     public function doRegister()
     {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: ' . BASE_URL . 'auth/register');
+            header('Location: ' . Config::url('auth/register'));
             exit();
         }
 
@@ -40,24 +40,24 @@ class Auth
         // Validate
         if (empty($full_name) || empty($email) || empty($password)) {
             $_SESSION['error'] = 'Vui lòng điền đầy đủ thông tin';
-            header('Location: ' . BASE_URL . 'auth/register');
+            header('Location: ' . Config::url('auth/register'));
             exit();
         }
 
         // Check email tồn tại
         if ($this->userModel->findUserByEmail($email)) {
             $_SESSION['error'] = 'Email này đã được sử dụng';
-            header('Location: ' . BASE_URL . 'auth/register');
+            header('Location: ' . Config::url('auth/register'));
             exit();
         }
 
         // Đăng ký
         if ($this->userModel->register($full_name, $email, $password)) {
             $_SESSION['success'] = 'Đăng ký thành công! Hãy đăng nhập.';
-            header('Location: ' . BASE_URL . 'auth/login');
+            header('Location: ' . Config::url('auth/login'));
         } else {
             $_SESSION['error'] = 'Có lỗi xảy ra, vui lòng thử lại';
-            header('Location: ' . BASE_URL . 'auth/register');
+            header('Location: ' . Config::url('auth/register'));
         }
         exit();
     }
@@ -66,7 +66,7 @@ class Auth
     public function doLogin()
     {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header('Location: ' . BASE_URL . 'auth/login');
+            header('Location: ' . Config::url('auth/login'));
             exit();
         }
 
@@ -83,13 +83,13 @@ class Auth
 
             // Phân quyền chuyển hướng
             if ($user->role === 'admin') {
-                header('Location: ' . BASE_URL . 'admin');
+                header('Location: ' . Config::url('admin'));
             } else {
-                header('Location: ' . BASE_URL);
+                header('Location: ' . Config::url());
             }
         } else {
             $_SESSION['error'] = 'Email hoặc mật khẩu không chính xác';
-            header('Location: ' . BASE_URL . 'auth/login');
+            header('Location: ' . Config::url('auth/login'));
         }
         exit();
     }
@@ -98,7 +98,7 @@ class Auth
     public function logout()
     {
         session_destroy();
-        header('Location: ' . BASE_URL);
+        header('Location: ' . Config::url());
         exit();
     }
 }

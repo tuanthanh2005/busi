@@ -1,16 +1,16 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+﻿<?php Config::header(); ?>
         <div class="page-header pb-5">
             <div class="container text-center py-5">
                 <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3">Dịch vụ triển khai</span>
                 <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Tăng Trưởng Có Hệ Thống</h1>
                 <p class="text-white-50 lead mb-4">Từ chiến lược đến triển khai: tối ưu funnel, tự động hóa vận hành và tăng trưởng bền vững.</p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="<?= BASE_URL ?>product" class="btn btn-primary rounded-pill px-4 py-2">Xem Tool</a>
-                    <a href="<?= BASE_URL ?>home/contact" class="btn btn-outline-light rounded-pill px-4 py-2">Nhận tư vấn</a>
+                    <a href="<?= Config::url() ?>product" class="btn btn-primary rounded-pill px-4 py-2">Xem Tool</a>
+                    <a href="<?= Config::url() ?>home/contact" class="btn btn-outline-light rounded-pill px-4 py-2">Nhận tư vấn</a>
                 </div>
                 <nav aria-label="breadcrumb animated slideInDown" class="mt-4">
                     <ol class="breadcrumb justify-content-center text-uppercase mb-0">
-                        <li class="breadcrumb-item"><a class="text-white" href="<?= BASE_URL ?>">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="<?= Config::url() ?>">Trang chủ</a></li>
                         <li class="breadcrumb-item text-primary active" aria-current="page">Dịch vụ</li>
                     </ol>
                 </nav>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
                     <!-- TODO: Thêm ảnh mô tả quy trình/đội ngũ, tỉ lệ 16:10, size 1280x800 px -->
-                    <img class="img-fluid rounded-4 shadow-lg" src="<?= BASE_URL ?>img/service-1.jpg" alt="">
+                    <img class="img-fluid rounded-4 shadow-lg" src="<?= Config::url() ?>img/service-1.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@
     <!-- Process End -->
 
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>
 
 <style>
 .glass-card {

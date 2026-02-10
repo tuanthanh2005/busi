@@ -14,7 +14,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="<?= BASE_URL ?>img/favicon.ico" rel="icon">
+    <link href="<?= Config::image('favicon.ico') ?>" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,16 +27,13 @@ if (session_status() == PHP_SESSION_NONE) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="<?= BASE_URL ?>lib/animate/animate.min.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?= BASE_URL ?>css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="<?= BASE_URL ?>css/style.css" rel="stylesheet">
+    <!-- Libraries & Template Stylesheets (Quản lý từ Config Helper) -->
+    <?php 
+    $cssLibs = Config::getCssLibs();
+    foreach ($cssLibs as $css) {
+        echo '<link href="' . $css . '" rel="stylesheet">' . "\n";
+    }
+    ?>
     
     <!-- Particles.js for VIP Background Effect -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -149,8 +146,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <!-- Header Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-                <a href="<?= BASE_URL ?>" class="navbar-brand ms-4 ms-lg-0">
-                    <img src="<?= BASE_URL ?>img/logo/logo-text.png" alt="Logo DigitalPro" style="height: 40px;">
+                <a href="<?= Config::url() ?>" class="navbar-brand ms-4 ms-lg-0">
+                    <img src="<?= Config::image('logo/logo-text.png') ?>" alt="Logo DigitalPro" style="height: 40px;">
                 </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -158,11 +155,11 @@ if (session_status() == PHP_SESSION_NONE) {
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="<?= BASE_URL ?>" class="nav-item nav-link <?= ($active ?? '') == 'home' ? 'active' : '' ?>">Trang Chủ</a>
-                    <a href="<?= BASE_URL ?>home/about" class="nav-item nav-link <?= ($active ?? '') == 'about' ? 'active' : '' ?>">Giới Thiệu</a>
-                    <a href="<?= BASE_URL ?>home/service" class="nav-item nav-link <?= ($active ?? '') == 'service' ? 'active' : '' ?>">Dịch Vụ</a>
-<a href="<?= BASE_URL ?>product" class="nav-item nav-link <?= ($active ?? '') == 'products' ? 'active' : '' ?>">Sản Phẩm</a>
-                    <a href="<?= BASE_URL ?>home/contact" class="nav-item nav-link <?= ($active ?? '') == 'contact' ? 'active' : '' ?>">Liên Hệ</a>
+                    <a href="<?= Config::url() ?>" class="nav-item nav-link <?= ($active ?? '') == 'home' ? 'active' : '' ?>">Trang Chủ</a>
+                    <a href="<?= Config::route('home', 'about') ?>" class="nav-item nav-link <?= ($active ?? '') == 'about' ? 'active' : '' ?>">Giới Thiệu</a>
+                    <a href="<?= Config::route('home', 'service') ?>" class="nav-item nav-link <?= ($active ?? '') == 'service' ? 'active' : '' ?>">Dịch Vụ</a>
+<a href="<?= Config::route('product') ?>" class="nav-item nav-link <?= ($active ?? '') == 'products' ? 'active' : '' ?>">Sản Phẩm</a>
+                    <a href="<?= Config::route('home', 'contact') ?>" class="nav-item nav-link <?= ($active ?? '') == 'contact' ? 'active' : '' ?>">Liên Hệ</a>
                 </div>
                 <div class="d-none d-lg-flex align-items-center">
                     <?php if(isset($_SESSION['user_id'])): ?>
@@ -172,15 +169,15 @@ if (session_status() == PHP_SESSION_NONE) {
                             </a>
                             <div class="dropdown-menu m-0">
                                 <?php if($_SESSION['user_role'] === 'admin'): ?>
-                                    <a href="<?= BASE_URL ?>admin" class="dropdown-item text-primary fw-bold">Trang Quản Trị</a>
+                                    <a href="<?= Config::route('admin') ?>" class="dropdown-item text-primary fw-bold">Trang Quản Trị</a>
                                 <?php endif; ?>
-                                <a href="<?= BASE_URL ?>profile" class="dropdown-item">Thông Tin</a>
-                                <a href="<?= BASE_URL ?>auth/logout" class="dropdown-item text-danger">Đăng Xuất</a>
+                                <a href="<?= Config::route('profile') ?>" class="dropdown-item">Thông Tin</a>
+                                <a href="<?= Config::route('auth', 'logout') ?>" class="dropdown-item text-danger">Đăng Xuất</a>
                             </div>
                         </div>
                     <?php else: ?>
-                        <a class="nav-item nav-link me-3 <?= ($active ?? '') == 'login' ? 'text-primary' : '' ?>" href="<?= BASE_URL ?>auth/login">Login</a>
-                        <a class="btn btn-outline-primary border-2 py-2 px-4" href="<?= BASE_URL ?>auth/register">Register</a>
+                        <a class="nav-item nav-link me-3 <?= ($active ?? '') == 'login' ? 'text-primary' : '' ?>" href="<?= Config::route('auth', 'login') ?>">Login</a>
+                        <a class="btn btn-outline-primary border-2 py-2 px-4" href="<?= Config::route('auth', 'register') ?>">Register</a>
                     <?php endif; ?>
                 </div>
             </div>

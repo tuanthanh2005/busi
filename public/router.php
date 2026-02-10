@@ -1,7 +1,7 @@
 <?php
 $requestUri = $_SERVER["REQUEST_URI"];
 $parsedUrl = parse_url($requestUri);
-$requestPath = ltrim($parsedUrl['path'], '/');
+$requestPath = rawurldecode(ltrim($parsedUrl['path'], '/'));
 
 // Check if the requested path corresponds to an existing file (static or PHP)
 if (file_exists(__DIR__ . '/' . $requestPath)) {

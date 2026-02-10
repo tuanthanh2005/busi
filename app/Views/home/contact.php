@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php Config::header(); ?>
         <div class="page-header pb-5">
             <div class="container text-center py-5">
                 <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Contact</h1>
@@ -107,4 +107,4 @@
     <!-- Google Map End -->
 
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>

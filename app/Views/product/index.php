@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php Config::header(); ?>
 
 <!-- 🛍️ Product Header -->
 <div class="container-fluid py-5" style="margin-top: 80px;">
@@ -8,10 +8,10 @@
         
         <!-- 🔥 Category Filter Buttons -->
         <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
-            <a href="<?= BASE_URL ?>product" class="btn btn-outline-primary rounded-pill px-4 py-2 <?= (!isset($_GET['cat']) ? 'active bg-primary text-white' : '') ?>">Tất Cả</a>
-            <a href="<?= BASE_URL ?>product?cat=ai" class="btn btn-outline-info rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'ai') ? 'active bg-info text-white' : '') ?>"><i class="fas fa-robot me-2"></i>AI Tools</a>
-            <a href="<?= BASE_URL ?>product?cat=tool" class="btn btn-outline-success rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'tool') ? 'active bg-success text-white' : '') ?>"><i class="fab fa-telegram me-2"></i>Tool Bot</a>
-            <a href="<?= BASE_URL ?>product?cat=ebook" class="btn btn-outline-warning rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'ebook') ? 'active bg-warning text-white' : '') ?>"><i class="fas fa-book me-2"></i>Ebooks</a>
+            <a href="<?= Config::url() ?>product" class="btn btn-outline-primary rounded-pill px-4 py-2 <?= (!isset($_GET['cat']) ? 'active bg-primary text-white' : '') ?>">Tất Cả</a>
+            <a href="<?= Config::url() ?>product?cat=ai" class="btn btn-outline-info rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'ai') ? 'active bg-info text-white' : '') ?>"><i class="fas fa-robot me-2"></i>AI Tools</a>
+            <a href="<?= Config::url() ?>product?cat=tool" class="btn btn-outline-success rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'tool') ? 'active bg-success text-white' : '') ?>"><i class="fab fa-telegram me-2"></i>Tool Bot</a>
+            <a href="<?= Config::url() ?>product?cat=ebook" class="btn btn-outline-warning rounded-pill px-4 py-2 <?= ((isset($_GET['cat']) && $_GET['cat'] == 'ebook') ? 'active bg-warning text-white' : '') ?>"><i class="fas fa-book me-2"></i>Ebooks</a>
         </div>
     </div>
 </div>
@@ -48,8 +48,8 @@
                             <!-- 🖼️ Image -->
                             <div class="position-relative overflow-hidden text-center p-4">
                                 <img class="img-fluid rounded-3 service-img" 
-                                     src="<?= $prod->image ?>" 
-                                     alt="<?= $prod->name ?>" 
+                                     src="<?= BASE_URL . 'uploads/' . ($prod->image ?? 'default.png') ?>" 
+                                     alt="<?= htmlspecialchars($prod->name) ?>" 
                                      style="height: 200px; object-fit: contain; transition: transform 0.5s;">
                             </div>
 
@@ -79,7 +79,7 @@
     </div>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>
 
 <style>
 /* CSS bổ sung cho trang Product */

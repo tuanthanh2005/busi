@@ -1,10 +1,10 @@
 ﻿    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <a href="<?= BASE_URL ?>">
+            <a href="<?= Config::url() ?>">
                 <h1 class="display-4 mb-3 text-white text-uppercase"><i class="fa-solid fa-code me-1"></i>DigitalPro</h1>
             </a>
-            <p class="fs-5 mb-4">Giáº£i PhÃ¡p Sá»‘ ToÃ n Diá»‡n - Blockchain, Web Design & Marketing</p>
+            <p class="fs-5 mb-4">Giáº£i PhÃ¡p Sá»' ToÃ n Diá»‡n - Blockchain, Web Design & Marketing</p>
             <div class="d-flex justify-content-center mb-4">
                 <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!" title="Facebook"><i
                         class="fab fa-facebook-f"></i></a>
@@ -18,7 +18,7 @@
                         class="fab fa-linkedin-in"></i></a>
             </div>
             <div class="border-top border-secondary pt-4">
-                <p class="mb-2">&copy; <?= date('Y') ?> <a class="border-bottom text-primary" href="<?= BASE_URL ?>">DigitalPro</a>. All Rights Reserved.</p>
+                <p class="mb-2">&copy; <?= date('Y') ?> <a class="border-bottom text-primary" href="<?= Config::url() ?>">DigitalPro</a>. All Rights Reserved.</p>
                 <p class="mb-0 text-secondary">Powered by Advanced Technology & Innovation</p>
             </div>
         </div>
@@ -33,11 +33,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= BASE_URL ?>lib/wow/wow.min.js"></script>
-    <script src="<?= BASE_URL ?>lib/easing/easing.min.js"></script>
-    <script src="<?= BASE_URL ?>lib/waypoints/waypoints.min.js"></script>
-    <script src="<?= BASE_URL ?>lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="<?= BASE_URL ?>lib/lightbox/js/lightbox.min.js"></script>
+    
+    <!-- JavaScript Libraries (Quản lý từ Config Helper) -->
+    <?php 
+    $jsLibs = Config::getJsLibs();
+    foreach ($jsLibs as $js) {
+        echo '<script src="' . $js . '"></script>' . "\n";
+    }
+    ?>
 
     <!-- ðŸ”¥ LIVE CHAT SYSTEM CLIENT ðŸ”¥ -->
     <?php $isLoggedIn = !empty($_SESSION['user_id']); ?>
@@ -64,7 +67,7 @@
             <?php else: ?>
                 <div class="text-center text-muted small mt-4">
                     Báº¡n cáº§n Ä‘Äƒng nháº­p Ä‘á»ƒ báº¯t Ä‘áº§u chat.<br>
-                    <a href="<?= BASE_URL ?>auth/login" class="text-primary fw-bold">ÄÄƒng nháº­p ngay</a>
+                    <a href="<?= Config::url() ?>auth/login" class="text-primary fw-bold">ÄÄƒng nháº­p ngay</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -150,7 +153,7 @@
             scrollToBottom();
 
             // AJAX
-            fetch('<?= BASE_URL ?>ajax_chat.php', {
+            fetch('<?= Config::url('ajax_chat.php') ?>', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 body: 'action=send&message=' + encodeURIComponent(msg)
@@ -198,7 +201,7 @@
         });
 
         function fetchMessages() {
-            fetch('<?= BASE_URL ?>ajax_chat.php?action=get', {
+            fetch('<?= Config::url('ajax_chat.php?action=get') ?>', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 body: 'action=get'
@@ -232,7 +235,7 @@
         }
 
         function checkBadge() {
-            fetch('<?= BASE_URL ?>ajax_chat.php', {
+            fetch('<?= Config::url('ajax_chat.php') ?>', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 body: 'action=count'
@@ -270,7 +273,7 @@
         }
 
         function showLoginNotice() {
-            chatMsgs.innerHTML = '<div class="text-center text-muted small mt-4">Báº¡n cáº§n Ä‘Äƒng nháº­p Ä‘á»ƒ báº¯t Ä‘áº§u chat.<br><a href="<?= BASE_URL ?>auth/login" class="text-primary fw-bold">ÄÄƒng nháº­p ngay</a></div>';
+            chatMsgs.innerHTML = '<div class="text-center text-muted small mt-4">Báº¡n cáº§n Ä‘Äƒng nháº­p Ä‘á»ƒ báº¯t Ä‘áº§u chat.<br><a href="<?= Config::url() ?>auth/login" class="text-primary fw-bold">ÄÄƒng nháº­p ngay</a></div>';
         }
     });
     </script>
@@ -492,12 +495,6 @@
         transform: translateX(0);
     }
     </style>
-
-    <!-- Template Javascript -->
-    <script src="<?= BASE_URL ?>js/main.js"></script>
-    
-    <!-- VIP PRO Enhancements -->
-    <script src="<?= BASE_URL ?>js/enhancements.js"></script>
 </body>
 
 </html>

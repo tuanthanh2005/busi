@@ -1,16 +1,16 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+﻿<?php Config::header(); ?>
         <div class="page-header pb-5">
             <div class="container text-center py-5">
                 <span class="badge bg-info text-dark px-3 py-2 rounded-pill mb-3">Giới thiệu DigitalPro</span>
                 <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Tụi Mình Là Ai?</h1>
                 <p class="text-white-50 lead mb-4">Chúng tôi xây dựng hệ sinh thái giải pháp số: AI Tools, Marketing Automation, và nội dung tăng trưởng bền vững.</p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="<?= BASE_URL ?>product" class="btn btn-primary rounded-pill px-4 py-2">Xem Sản Phẩm</a>
-                    <a href="<?= BASE_URL ?>home/service" class="btn btn-outline-light rounded-pill px-4 py-2">Dịch Vụ</a>
+                    <a href="<?= Config::url() ?>product" class="btn btn-primary rounded-pill px-4 py-2">Xem Sản Phẩm</a>
+                    <a href="<?= Config::url() ?>home/service" class="btn btn-outline-light rounded-pill px-4 py-2">Dịch Vụ</a>
                 </div>
                 <nav aria-label="breadcrumb animated slideInDown" class="mt-4">
                     <ol class="breadcrumb justify-content-center text-uppercase mb-0">
-                        <li class="breadcrumb-item"><a class="text-white" href="<?= BASE_URL ?>">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="<?= Config::url() ?>">Trang chủ</a></li>
                         <li class="breadcrumb-item text-primary active" aria-current="page">Giới thiệu</li>
                     </ol>
                 </nav>
@@ -46,17 +46,17 @@
                         </ul>
                         <div class="row g-3 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="col-6">
-                                <a href="<?= BASE_URL ?>product" class="btn btn-outline-primary border-2 py-3 w-100">Khám phá tool</a>
+                                <a href="<?= Config::url() ?>product" class="btn btn-outline-primary border-2 py-3 w-100">Khám phá tool</a>
                             </div>
                             <div class="col-6">
-                                <a href="<?= BASE_URL ?>home/service" class="btn btn-primary py-3 w-100">Tư vấn dịch vụ</a>
+                                <a href="<?= Config::url() ?>home/service" class="btn btn-primary py-3 w-100">Tư vấn dịch vụ</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
                     <!-- TODO: Thêm ảnh brand/đội ngũ, tỉ lệ 4:5, size 900x1125 px -->
-                    <img class="img-fluid rounded-4 shadow-lg" src="<?= BASE_URL ?>img/about.png" alt="">
+                    <img class="img-fluid rounded-4 shadow-lg" src="<?= Config::url() ?>img/about.png" alt="">
                 </div>
             </div>
         </div>
@@ -144,14 +144,14 @@
                 </div>
             </div>
             <p class="fs-5 mb-4 wow fadeInUp" data-wow-delay="0.2s">Gửi mục tiêu kinh doanh, DigitalPro sẽ đề xuất gói phù hợp trong 24 giờ.</p>
-            <a href="<?= BASE_URL ?>home/contact" class="btn btn-primary rounded-pill px-5 py-3 wow fadeInUp" data-wow-delay="0.3s">Nhận tư vấn</a>
+            <a href="<?= Config::url() ?>home/contact" class="btn btn-primary rounded-pill px-5 py-3 wow fadeInUp" data-wow-delay="0.3s">Nhận tư vấn</a>
         </div>
     </div>
     <!-- CTA End -->
 
 
     <!-- Footer Start -->
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>
 
 <style>
 .glass-card {

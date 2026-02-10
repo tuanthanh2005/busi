@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php Config::header(); ?>
 
 <div class="container-fluid py-5" style="margin-top: 100px; min-height: 80vh;">
     <div class="container py-5">
@@ -22,7 +22,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="<?= BASE_URL ?>auth/doLogin" method="POST">
+                    <form action="<?= Config::url() ?>auth/doLogin" method="POST">
                         <div class="mb-3">
                             <label class="form-label text-white">Email</label>
                             <input type="email" name="email" class="form-control" required>
@@ -39,7 +39,7 @@
                     <div class="text-center mt-4">
                         <p class="text-white-50">
                             Chưa có tài khoản? 
-                            <a href="<?= BASE_URL ?>auth/register" class="text-primary">Đăng ký ngay</a>
+                            <a href="<?= Config::url() ?>auth/register" class="text-primary">Đăng ký ngay</a>
                         </p>
                     </div>
                 </div>
@@ -48,4 +48,4 @@
     </div>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>

@@ -15,7 +15,7 @@ class Profile
         // 🛡️ Guard: Phải đăng nhập mới xem được trang cá nhân
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['error'] = 'Vui lòng đăng nhập để xem thông tin cá nhân';
-            header('Location: ' . BASE_URL . 'auth/login');
+            header('Location: ' . Config::url('auth/login'));
             exit();
         }
     }

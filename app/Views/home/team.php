@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php Config::header(); ?>
         <div class="page-header pb-5">
             <div class="container text-center py-5">
                 <h1 class="display-4 text-uppercase mb-3 animated slideInDown">Our Models</h1>
@@ -38,7 +38,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-1.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-1.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -64,7 +64,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-2.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-2.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -90,7 +90,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-3.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-3.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -116,7 +116,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-4.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -142,7 +142,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-5.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-5.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -168,7 +168,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-6.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-6.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -194,7 +194,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-7.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-7.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -220,7 +220,7 @@
                                 <span>Waist</span>
                                 <span>Hips</span>
                             </div>
-                            <img class="img-fluid" src="<?= BASE_URL ?>img/team-8.jpg" alt="">
+                            <img class="img-fluid" src="<?= Config::url() ?>img/team-8.jpg" alt="">
                             <div class="team-after">
                                 <span>22</span>
                                 <span>185</span>
@@ -241,4 +241,4 @@
     <!-- Team End -->
 
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>

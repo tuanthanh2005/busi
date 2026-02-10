@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php Config::header(); ?>
 
 <div class="container-fluid py-5" style="margin-top: 100px; min-height: 85vh;">
     <div class="container py-5">
@@ -7,7 +7,7 @@
             <div class="col-lg-4 wow fadeInLeft" data-wow-delay="0.1s">
                 <div class="glass-bg p-5 rounded-4 border border-white-50 shadow-lg text-center h-100">
                     <div class="mb-4 position-relative d-inline-block">
-                        <img src="<?= BASE_URL ?>img/profile-placeholder.jpg" 
+                        <img src="<?= Config::url() ?>img/profile-placeholder.jpg" 
                              onerror="this.src='https://ui-avatars.com/api/?name=<?= urlencode($data['user']->full_name) ?>&size=200&background=764ba2&color=fff'"
                              class="rounded-circle border border-primary border-4 p-1 shadow-lg" 
                              style="width: 150px; height: 150px; object-fit: cover;">
@@ -38,7 +38,7 @@
                 <div class="glass-bg p-5 rounded-4 border border-white-50 shadow-lg h-100">
                     <div class="d-flex justify-content-between align-items-center mb-5">
                         <h2 class="text-white mb-0">Dashboard Cá Nhân</h2>
-                        <a href="<?= BASE_URL ?>auth/logout" class="btn btn-sm btn-outline-danger">
+                        <a href="<?= Config::url() ?>auth/logout" class="btn btn-sm btn-outline-danger">
                             <i class="fas fa-sign-out-alt me-1"></i> Đăng xuất
                         </a>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="p-5 text-center bg-white bg-opacity-5 rounded-3 border border-white-10">
                         <i class="fas fa-ghost fa-3x text-white-50 mb-3 d-block"></i>
                         <p class="text-white-50 mb-0">Chưa có hoạt động nào được ghi lại.</p>
-                        <a href="<?= BASE_URL ?>" class="btn btn-primary mt-4">Khám phá dịch vụ</a>
+                        <a href="<?= Config::url() ?>" class="btn btn-primary mt-4">Khám phá dịch vụ</a>
                     </div>
                 </div>
             </div>
@@ -76,4 +76,4 @@
     </div>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php Config::footer(); ?>
