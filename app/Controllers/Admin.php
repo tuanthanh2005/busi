@@ -20,7 +20,7 @@ class Admin
     // 📊 Trang Dashboard Quản Trị
     public function index()
     {
-        require_once '../app/Models/Product.php';
+        require_once __DIR__ . '/../Models/Product.php';
         $productModel = new ProductModel();
         $products = $productModel->getAll();
 
@@ -29,20 +29,21 @@ class Admin
             'active' => 'admin',
             'products' => $products
         ];
-        require_once '../app/Views/admin/dashboard.php';
+        require_once __DIR__ . '/../Views/admin/dashboard.php';
     }
 
     // 🛍️ Quản lý sản phẩm (CRUD)
     public function product($action = null)
     {
-        require_once '../app/Models/Product.php';
+        require_once __DIR__ . '/../Models/Product.php';
         $productModel = new ProductModel();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($action === 'store') {
                 $image = 'default.png';
                 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-                    $target_dir = __DIR__ . '/../../public/uploads/';
+                    $docRoot = isset($_SERVER['DOCUMENT_ROOT']) ? rtrim($_SERVER['DOCUMENT_ROOT'], '/\\') : '';
+                    $target_dir = $docRoot !== '' ? ($docRoot . '/uploads/') : (__DIR__ . '/../../public/uploads/');
                     if (!file_exists($target_dir)) {
                         mkdir($target_dir, 0777, true);
                     }
@@ -73,7 +74,8 @@ class Admin
                $image = $_POST['existing_image'] ?? 'default.png';
                
                if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-                    $target_dir = __DIR__ . '/../../public/uploads/';
+                    $docRoot = isset($_SERVER['DOCUMENT_ROOT']) ? rtrim($_SERVER['DOCUMENT_ROOT'], '/\\') : '';
+                    $target_dir = $docRoot !== '' ? ($docRoot . '/uploads/') : (__DIR__ . '/../../public/uploads/');
                     if (!file_exists($target_dir)) {
                         mkdir($target_dir, 0777, true);
                     }
@@ -107,14 +109,14 @@ class Admin
         $data = [];
         if ($action === 'add') {
              $data['title'] = 'Thêm Sản Phẩm Mới';
-             require_once '../app/Views/admin/product_form.php';
+            require_once __DIR__ . '/../Views/admin/product_form.php';
         } elseif ($action === 'edit') {
              $id = $_GET['id'] ?? null;
              if ($id) {
                  $product = $productModel->getById($id);
                  $data['product'] = $product;
                  $data['title'] = 'Sửa Sản Phẩm';
-                 require_once '../app/Views/admin/product_form.php';
+                require_once __DIR__ . '/../Views/admin/product_form.php';
              } else {
                  header('Location: ' . BASE_URL . 'admin');
              }

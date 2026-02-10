@@ -3,8 +3,9 @@ class Controller
 {
     public function model($model)
     {
-        if (file_exists('../app/Models/' . $model . '.php')) {
-            require_once '../app/Models/' . $model . '.php';
+        $modelPath = __DIR__ . '/../Models/' . $model . '.php';
+        if (file_exists($modelPath)) {
+            require_once $modelPath;
             return new $model();
         }
         return null;
@@ -12,9 +13,10 @@ class Controller
 
     public function view($view, $data = [])
     {
-        if (file_exists('../app/Views/' . $view . '.php')) {
+        $viewPath = __DIR__ . '/../Views/' . $view . '.php';
+        if (file_exists($viewPath)) {
             extract($data);
-            require_once '../app/Views/' . $view . '.php';
+            require_once $viewPath;
         } else {
             die('View does not exist: ' . $view);
         }

@@ -8,18 +8,24 @@ class Config {
     private static $host = null;
     private static $baseDir = null;
     private static $publicBasePath = null;
-    
-    // ============== DATABASE ==============
+// ============== HOSTING CONFIG (CHỈNH TẠI ĐÂY KHI LÊN SERVER) ==============
+const FORCE_BASE_URL = 'https://business.dungthu.com/';
+
+
+    // ===== DATABASE =====
     const DB_HOST = 'localhost';
-    const DB_USER = 'root';
-    const DB_PASS = '';
-    const DB_NAME = 'busi';
+    const DB_USER = 'u828928906_busi';
+    const DB_PASS = 'Cudanmangorg_1';
+    const DB_NAME = 'u828928906_busi';
+
+
     
     // ============== HOSTING CONFIG (CHỈNH TẠI ĐÂY KHI LÊN SERVER) ==============
     // Nếu muốn hardcode BASE_URL, bỏ comment dòng dưới:
-    // const FORCE_BASE_URL = 'https://yourdomain.com/';
+// const FORCE_BASE_URL = null; // null = tự động detect
+
     
-    const FORCE_BASE_URL = null; // null = tự động detect
+    // const FORCE_BASE_URL = null; // null = tự động detect
     
     // ============== METHODS ==============
     

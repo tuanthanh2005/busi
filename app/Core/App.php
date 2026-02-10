@@ -9,13 +9,15 @@ class App
     {
         $url = $this->parseUrl();
 
+        $controllerPath = __DIR__ . '/../Controllers/';
+
         // Check if controller exists for first URL segment
-        if (isset($url[0]) && file_exists('../app/Controllers/' . ucfirst($url[0]) . '.php')) {
+        if (isset($url[0]) && file_exists($controllerPath . ucfirst($url[0]) . '.php')) {
             $this->controller = ucfirst($url[0]);
             unset($url[0]);
         }
 
-        require_once '../app/Controllers/' . $this->controller . '.php';
+        require_once $controllerPath . $this->controller . '.php';
 
         $this->controller = new $this->controller;
 

@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Models/User.php';
+require_once __DIR__ . '/../Models/User.php';
 
 class Auth
 {
@@ -16,13 +16,13 @@ class Auth
     // 📄 Hiển thị trang đăng ký
     public function register()
     {
-        require_once '../app/Views/auth/register.php';
+        require_once __DIR__ . '/../Views/auth/register.php';
     }
 
     // 📄 Hiển thị trang đăng nhập
     public function login()
     {
-        require_once '../app/Views/auth/login.php';
+        require_once __DIR__ . '/../Views/auth/login.php';
     }
 
     // ✅ Xử lý đăng ký

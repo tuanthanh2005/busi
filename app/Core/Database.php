@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '';
-    private $dbname = 'busi'; // Cập nhật tên DB cho dự án DigitalPro
+    private $host;
+    private $user;
+    private $pass;
+    private $dbname;
 
     protected $dbh;
     protected $stmt;
@@ -12,6 +12,13 @@ class Database
 
     public function __construct()
     {
+        require_once __DIR__ . '/../config/config.php';
+
+        $this->host = Config::DB_HOST;
+        $this->user = Config::DB_USER;
+        $this->pass = Config::DB_PASS;
+        $this->dbname = Config::DB_NAME;
+
         // Simple singleton or connection logic
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         $options = array(
@@ -23,7 +30,7 @@ class Database
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
-            die("<h1>Lỗi kết nối CSDL: " . $this->error . "</h1><p>Hãy kiểm tra PHPMyAdmin xem DB 'busi' đã có chưa.</p>");
+            die("<h1>Lỗi kết nối CSDL: " . $this->error . "</h1><p>Hãy kiểm tra PHPMyAdmin xem DB đã có chưa.</p>");
         }
     }
 

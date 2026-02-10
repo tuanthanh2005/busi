@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Models/User.php';
+require_once __DIR__ . '/../Models/User.php';
 
 class Profile
 {
@@ -30,7 +30,7 @@ class Profile
             'user' => $user
         ];
 
-        require_once '../app/Views/profile/index.php';
+        require_once __DIR__ . '/../Views/profile/index.php';
     }
 
     // 🔄 Cập nhật thông tin (Tính năng mở rộng sau này)

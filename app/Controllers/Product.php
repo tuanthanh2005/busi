@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Models/Product.php';
+require_once __DIR__ . '/../Models/Product.php';
 
 class Product
 {
@@ -32,7 +32,7 @@ class Product
             'activeCat' => $activeCat
         ];
 
-        require_once '../app/Views/product/index.php';
+        require_once __DIR__ . '/../Views/product/index.php';
     }
     
     // 🔍 Chi tiết sản phẩm (Mở rộng sau này)
